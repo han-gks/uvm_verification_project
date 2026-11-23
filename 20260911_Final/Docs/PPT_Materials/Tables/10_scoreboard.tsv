@@ -1,0 +1,9 @@
+단계	동작	검증 의미
+Input	program item과 commit item 수신	original expected stream과 actual commit 분리
+Alignment	expected PC/instruction와 actual 비교	instruction 누락, 중복, 순서 오류 검출
+Source	ref_gpr/ref_valid에서 source 계산	DUT register read 결과에 의존하지 않는 reference 구성
+Execute	full-funct7 R/I reference로 expected result 계산	DUT bit-30 축약과 독립적으로 legal/illegal decode 확인
+Write-back	rd_we + raw rf_we, rd/data와 x0 규칙 비교	파생 신호 항등식과 DUT write control을 분리 검증
+READBACK	destination을 후속 명령의 source로 재관측	내부 register-file 저장 결과 확인
+X policy	X source는 validity를 taint, known overwrite로 회복	임의의 2-state expected 비교 없이 X 흐름 관리
+Result	scenario별 PASS/FAIL/SKIP/TOTAL	실패 위치와 data skip을 분리 보고

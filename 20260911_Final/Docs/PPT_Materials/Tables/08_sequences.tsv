@@ -1,0 +1,8 @@
+Sequence	Stimulus	검증 목적
+sanity_seq	legal R/I 19개 + x0 source/간접 copy	기본 동작과 x0 write-discard의 I/R 경로 확인
+boundary_seq	경계값과 경계 인접값	overflow/carry/borrow, compare, logic, immediate, shift 확인
+rf_access_seq	x0~x31 주소 rotation + alias/dependency	rs1/rs2/rd 전 주소와 실제 register 저장 확인
+operand_profile_seq	대표 value class 회전 조합, TARGET 171개	값 공간 pairwise closure, 3-way Cartesian 폭증 방지
+random_seq	mixed 초기화 + balanced 380 + free random 620	35% dependency, 30% alias, 40% boundary로 3-way 조합 탐색
+xprop_seq	uninitialized source, reuse, overwrite/recovery	source X 전파와 known 상태 회복 확인
+illegal_seq	MUL/reserved XOR/illegal SLLI encoding	별도 negative test에서 legality 및 full-funct7 검출 확인

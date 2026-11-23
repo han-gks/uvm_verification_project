@@ -1,0 +1,8 @@
+항목	결과	판정
+Executed test	rv32i_ri_xprop_test	실제 별도 test 실행 확인
+XPROP scoreboard	PASS 17 / FAIL 0 / SKIP 5 / TOTAL 22	X source 5건의 data compare만 의도대로 skip
+xprop_cg	100%	PASS
+X propagation SVA	error 0 / fatal 0	PASS
+SVA reachability	clean X-source 0, XPROP R/I X-source 4/1	예상과 일치
+FSM scope	MEMORY 0, WRITEBACK 0	R/I-only 범위의 정상 미도달
+Final regression	directed PASS + random 20/20 + XPROP PASS	PASS

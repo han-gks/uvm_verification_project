@@ -1,0 +1,8 @@
+시나리오 (Test / Sequence)	핵심 자극	검증 목표
+기본 기능 (Directed / sanity_seq)	Legal R/I 19개, x0 source·write-discard	기본 연산, PC + 4, x0 규칙
+경계값 (Directed / boundary_seq)	operand·immediate의 경계값과 인접값	overflow/carry, compare, immediate/shamt 경계
+RF·의존성 (Directed / rf_access_seq)	x0~x31 회전, alias, producer→consumer, readback	주소 조합과 실제 register 저장
+Operand 값 조합 (Directed / operand_profile_seq)	9개 value class의 R-op × src1 × src2	810-bin 3-way closure와 planned-case commit
+랜덤 조합 (Random / 20 seeds)	mixed init → balanced 380 → free random 620	dependency·alias·boundary 조합의 seed별 확장
+X 전파·회복 (XPROP / xprop_seq)	X source → 결과 재사용 → known overwrite	ALU/WB X 전파와 정상 비교 복귀
+불법 인코딩 (Illegal / illegal_seq)	MUL → reserved XOR → illegal SLLI	legality assertion과 full-funct7 검출

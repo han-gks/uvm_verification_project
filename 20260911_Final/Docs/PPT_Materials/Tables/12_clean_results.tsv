@@ -1,0 +1,13 @@
+항목	결과	판정
+Directed	seed 1001, 1회	PASS, 8,419 commits
+Random seed	1001~1020, 20개	PASS 20 / FAIL 0
+Random commit	총 80,640개	run당 4,017~4,044, FAIL/SKIP 0
+Random TARGET	seed당 1,003개	random 1,000 + immediate directed 3
+Directed case	1,962 / 1,962	100%
+instruction_cg	100%	PASS
+boundary_cg	100%	PASS
+operand_profile_cg	directed 100%; random merged 95.893%	R operand 3-way 806/810
+dependency_cg	directed 100%; random merged 97.3232%	R/I dependency 3-way 98/120, 32/36
+random_combo_cg	99.8878% (merged)	관측용, gate 아님
+Immediate -2047 / 2046 / 2047	각 20 hits	non-shift I-type deterministic item
+UVM/SVA	error 0 / fatal 0	PASS

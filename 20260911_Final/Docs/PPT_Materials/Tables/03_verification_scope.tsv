@@ -1,0 +1,11 @@
+구분	내용
+검증 대상	rv32i_cpu의 control unit, datapath, register file, ALU
+명령 범위	legal RV32I R-type 10개, I-type 9개
+R-type	ADD, SUB, SLL, SLT, SLTU, XOR, SRL, SRA, OR, AND
+I-type	ADDI, SLTI, SLTIU, XORI, ORI, ANDI, SLLI, SRLI, SRAI
+주요 목표	연산 결과, PC 증가, decode/control, register write/readback, x0 불변
+경계 검증	signed overflow, unsigned carry/borrow, compare 관계, immediate/shamt 경계
+조합 검증	register 주소, alias, dependency/gap, operand class pairwise + random 3-way
+강건성	known control 유지, source X의 ALU/write-back 전파, known overwrite 회복
+제외 범위	branch/jump, load/store, APB requester/RAM, ROM 자체, exception 처리
+검증 방법	UVM scoreboard + functional coverage + bind SVA + directed 1회/random 20-seed

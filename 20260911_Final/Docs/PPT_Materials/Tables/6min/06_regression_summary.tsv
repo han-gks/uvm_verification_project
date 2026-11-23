@@ -1,0 +1,8 @@
+항목	결과	판정
+Directed	PASS, 8,419 commits	planned 1,962 / 1,962
+Mandatory coverage	instruction/boundary/operand/dependency 100%	Directed gate PASS
+Random 20 seeds	20/20 PASS, 총 80,640 commits	seed 1001~1020, fail/skip 0
+New 3-way coverage	R operand 806/810; R dep 98/120; I dep 32/36	merged XCRG text report
+XPROP	PASS 17 / FAIL 0 / SKIP 5, xprop_cg 100%	R/I X-source 4/1 도달
+Illegal negative	MUL/reserved XOR/illegal SLLI 3/3 검출	hang/fatal 없이 예상 오류 검출
+Clean status	UVM error 0 / fatal 0	Directed + Random + XPROP PASS

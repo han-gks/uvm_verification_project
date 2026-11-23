@@ -1,0 +1,6 @@
+구분	발표용 요약	검증 기준
+대상 / 범위	rv32i_cpu core-only, legal R/I 19개	R-type 10개 + I-type 9개
+Correctness	ALU/WB 결과, PC+4, decode/control, RF readback, x0	독립 scoreboard + bind SVA
+Corner	Overflow/carry, compare, immediate/shamt, alias/dependency	Directed로 필수 항목 closure
+Robustness	Source X 전파·overwrite 회복, illegal encoding	별도 XPROP / negative test
+제외 범위	Branch/Jump, Load/Store, bus memory, exception	R/I-only 검증 범위

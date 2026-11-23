@@ -1,0 +1,42 @@
+<mxfile host="Electron" agent="Codex">
+  <diagram name="RV32I UVM Flow" id="rv32i-uvm-flow">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="title" value="RV32I Core-only UVM Verification Flow" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=24;fontStyle=1;fontColor=#111827;" vertex="1" parent="1"><mxGeometry x="55" y="35" width="650" height="45" as="geometry"/></mxCell>
+
+        <mxCell id="test" value="UVM Tests&#xa;Directed / Random / XPROP / Illegal" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;strokeWidth=2;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;arcSize=10;" vertex="1" parent="1"><mxGeometry x="55" y="210" width="250" height="220" as="geometry"/></mxCell>
+        <mxCell id="program" value="Program Item" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#2563EB;strokeWidth=2;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;arcSize=10;" vertex="1" parent="1"><mxGeometry x="355" y="250" width="245" height="140" as="geometry"/></mxCell>
+
+        <mxCell id="agent" value="IMEM Agent&#xa;(Active)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;strokeWidth=2;fontSize=15;fontStyle=1;align=center;verticalAlign=top;spacingTop=12;arcSize=10;" vertex="1" parent="1"><mxGeometry x="650" y="190" width="250" height="260" as="geometry"/></mxCell>
+        <mxCell id="sqr" value="sequencer" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#3B82F6;strokeWidth=1;fontSize=14;align=center;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="680" y="260" width="190" height="55" as="geometry"/></mxCell>
+        <mxCell id="drv" value="IMEM Driver" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#3B82F6;strokeWidth=1;fontSize=14;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1"><mxGeometry x="680" y="345" width="190" height="70" as="geometry"/></mxCell>
+
+        <mxCell id="dut" value="core_if + CPU DUT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;strokeWidth=2;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;arcSize=10;" vertex="1" parent="1"><mxGeometry x="965" y="225" width="260" height="190" as="geometry"/></mxCell>
+        <mxCell id="sva" value="Core Assertions&#xa;(Bind)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEE2E2;strokeColor=#DC2626;strokeWidth=2;fontSize=14;fontStyle=1;align=center;verticalAlign=middle;arcSize=10;" vertex="1" parent="1"><mxGeometry x="995" y="90" width="200" height="85" as="geometry"/></mxCell>
+
+        <mxCell id="monitor" value="Probe Monitor&#xa;(Passive)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;strokeWidth=2;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;arcSize=10;" vertex="1" parent="1"><mxGeometry x="1300" y="220" width="240" height="150" as="geometry"/></mxCell>
+        <mxCell id="commit" value="Commit Item" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#16A34A;strokeWidth=2;fontSize=14;fontStyle=1;align=center;verticalAlign=middle;arcSize=10;" vertex="1" parent="1"><mxGeometry x="1300" y="435" width="240" height="145" as="geometry"/></mxCell>
+
+        <mxCell id="metadata" value="Program Metadata" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#64748B;strokeWidth=1;fontSize=13;align=center;verticalAlign=middle;arcSize=10;" vertex="1" parent="1"><mxGeometry x="675" y="535" width="200" height="75" as="geometry"/></mxCell>
+        <mxCell id="scoreboard" value="Scoreboard&#xa;GPR Reference Model" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEDD5;strokeColor=#EA580C;strokeWidth=2;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;arcSize=10;" vertex="1" parent="1"><mxGeometry x="930" y="665" width="260" height="125" as="geometry"/></mxCell>
+        <mxCell id="coverage" value="Coverage&#xa;Directed Gates + Random Combo" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F2FE;strokeColor=#0284C7;strokeWidth=2;fontSize=15;fontStyle=1;align=center;verticalAlign=middle;arcSize=10;" vertex="1" parent="1"><mxGeometry x="1280" y="665" width="260" height="125" as="geometry"/></mxCell>
+
+        <mxCell id="e_test_program" value="build program" style="endArrow=block;html=1;rounded=0;strokeWidth=2;strokeColor=#2563EB;fontSize=13;" edge="1" parent="1" source="test" target="program"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_program_sqr" value="sequence item" style="endArrow=block;html=1;rounded=0;strokeWidth=2;strokeColor=#2563EB;fontSize=13;" edge="1" parent="1" source="program" target="sqr"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_sqr_drv" style="endArrow=block;html=1;rounded=0;strokeWidth=2;strokeColor=#2563EB;" edge="1" parent="1" source="sqr" target="drv"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_drv_dut" value="instruction / reset" style="endArrow=block;html=1;rounded=0;strokeWidth=2;strokeColor=#2563EB;fontSize=13;" edge="1" parent="1" source="drv" target="dut"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_sva_dut" value="Bind" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;rounded=0;strokeWidth=2;strokeColor=#DC2626;fontSize=13;jumpStyle=arc;jumpSize=6;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="sva" target="dut"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_dut_mon" value="bound probe" style="endArrow=block;html=1;rounded=0;strokeWidth=2;strokeColor=#16A34A;fontSize=13;" edge="1" parent="1" source="dut" target="monitor"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_mon_commit" value="analysis write" style="endArrow=block;html=1;rounded=0;strokeWidth=2;strokeColor=#16A34A;fontSize=13;" edge="1" parent="1" source="monitor" target="commit"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_drv_meta" value="publish" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;rounded=0;strokeWidth=2;strokeColor=#64748B;fontSize=13;jumpStyle=arc;jumpSize=6;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="drv" target="metadata"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="e_meta_scb" value="expected" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;rounded=0;strokeWidth=2;strokeColor=#EA580C;fontSize=13;jumpStyle=arc;jumpSize=6;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="metadata" target="scoreboard"><mxGeometry relative="1" as="geometry"><mxArray as="points"><mxPoint x="725" y="635"/><mxPoint x="995" y="635"/></mxArray></mxGeometry></mxCell>
+        <mxCell id="e_meta_cov" value="intent" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;rounded=0;strokeWidth=2;strokeColor=#0284C7;fontSize=13;jumpStyle=arc;jumpSize=6;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="metadata" target="coverage"><mxGeometry relative="1" as="geometry"><mxArray as="points"><mxPoint x="910" y="573"/><mxPoint x="910" y="640"/><mxPoint x="1345" y="640"/></mxArray></mxGeometry></mxCell>
+        <mxCell id="e_commit_scb" value="actual" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;rounded=0;strokeWidth=2;strokeColor=#EA580C;fontSize=13;jumpStyle=arc;jumpSize=6;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="commit" target="scoreboard"><mxGeometry relative="1" as="geometry"><mxArray as="points"><mxPoint x="1245" y="508"/><mxPoint x="1245" y="625"/><mxPoint x="1125" y="625"/></mxArray></mxGeometry></mxCell>
+        <mxCell id="e_commit_cov" value="sample" style="edgeStyle=orthogonalEdgeStyle;endArrow=block;html=1;rounded=0;strokeWidth=2;strokeColor=#0284C7;fontSize=13;jumpStyle=arc;jumpSize=6;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="commit" target="coverage"><mxGeometry relative="1" as="geometry"/></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,7 @@
+구간	동작	의미
+Program publish	driver가 program과 metadata 전송	scoreboard/coverage가 원본 expected stream 확보
+Execute edge 직전	mon_cb input #1step으로 sample	register-file에 쓰일 ALU/WB 값을 write edge 전에 관측
+Commit filter	reset 또는 commit_valid일 때 item 생성	R/I opcode commit을 전달하여 illegal negative도 검출 가능
+Architectural sample	PC/instruction/rd_we/rd/rd_data	실행 순서, PC, destination, 실제 write data 확인
+Internal sample	operands/immediate/control/ALU/WB	decode와 datapath 내부 경로를 independent reference/SVA로 확인
+Alignment	metadata queue의 동일 index와 결합	SETUP/READBACK이 TARGET coverage를 채우는 오염 방지

@@ -1,0 +1,14 @@
+검증 축	SVA Property	발동 조건 / 시점	확인 내용
+Reset	a_reset_state; a_no_activity_during_reset	reset assert 직후 / reset 동안	FETCH 복귀·PC=0, register write·bus 동작 금지
+FSM 상태	a_state_known; a_state_legal	reset 해제 후 매 clock	state X/Z 금지, 5개 legal state만 허용
+FSM 전이	a_fetch_to_decode; a_decode_to_execute; a_ri_execute_to_fetch	각 state의 다음 clock	R/I: FETCH → DECODE → EXECUTE → FETCH 순서 보장
+Fetch·Decode 안정성	a_pc_aligned; a_fetch_signals_stable; a_decode_signals_stable; a_instruction_known	FETCH/DECODE/EXECUTE	PC word alignment, PC·instruction 안정성 및 known 확인
+Operand capture	a_itype_immediate; a_rs1_capture; a_rs2_capture	DECODE의 legal R/I	immediate sign extension과 RF read 값의 ID/EX capture 확인
+x0 규칙	a_rs1_x0; a_rs2_x0	instruction source가 x0일 때	rf_rd1/rf_rd2가 항상 0인지 확인
+R-type decode	a_rtype_control	EXECUTE의 legal R-type	ALU control, ALU source, write enable, branch/bus 비활성 확인
+I-type decode	a_itype_control	EXECUTE의 legal I-type	immediate ALU source, ALU control, write enable, branch/bus 비활성 확인
+실행·write-back	a_rtype_execute; a_itype_execute	EXECUTE, source operand known일 때	독립 reference ALU 결과와 wb_data=alu_result 비교
+X 전파·control known	a_rtype_x_result_propagates; a_itype_x_result_propagates; a_ri_execute_known	EXECUTE의 ADD/SUB/XOR 계열 X source	X가 ALU/WB까지 전파되고 R/I control은 X가 아님을 확인
+PC·side effect	a_ri_pc_increment; a_ri_no_bus_access; a_no_write_outside_execute; a_pc_stable_before_commit	R/I EXECUTE 및 FETCH/DECODE	PC+4, data-bus 접근 금지, EXECUTE 밖 RF write·조기 PC 변경 금지
+Encoding legality	a_assume_legal_encoding	R/I가 EXECUTE에 진입할 때	MUL/reserved XOR/illegal SLLI를 legal R/I로 오해하지 않는지 검출
+Reachability (cover property)	c_state_*; c_trans_*; c_*_executed; c_*_x_source; c_*_is_x0	각 assertion antecedent 도달 시	FSM 상태·전이, R/I·X·x0 scenario가 실제 실행됐는지 집계

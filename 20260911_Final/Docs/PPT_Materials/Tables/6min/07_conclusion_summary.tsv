@@ -1,0 +1,5 @@
+결론	근거	현재 한계 / 다음 단계
+기능 closure	Directed planned 1,962/1,962 + mandatory coverage 100%	Branch/Jump, Load/Store는 범위 밖
+조합 확장	Random-only 20/20 PASS, 누적 combo key 집계	추가 seed로 조합 포화 추세 확인 가능
+독립성 강화	원본 expected stream, ref_gpr, full-funct7 reference, raw rf_we	외부 golden model은 미적용
+강건성 확인	XPROP PASS + illegal encoding 3/3 검출	Code coverage는 미수집

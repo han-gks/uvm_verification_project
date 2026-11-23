@@ -1,0 +1,64 @@
+<mxfile host="Electron">
+  <diagram name="FIFO Scoreboard Flow" id="0">
+    <mxGraphModel dx="901" dy="622" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#111827;" value="FIFO Scoreboard Flow" vertex="1">
+          <mxGeometry height="50" width="520" x="60" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="monitor" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E0F2FE;strokeColor=#0284C7;strokeWidth=2;fontSize=14;fontColor=#0F172A;align=center;verticalAlign=middle;" value="Monitor&lt;br&gt;&lt;b&gt;fifo_bus_item&lt;/b&gt;" vertex="1">
+          <mxGeometry height="120" width="210" x="80" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="scoreboard" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#334155;strokeWidth=2;fontSize=14;fontStyle=1;fontColor=#0F172A;align=center;verticalAlign=top;spacingTop=18;" value="Scoreboard&lt;br&gt;&lt;font&gt;write(fifo_bus_item req)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="470" width="960" x="380" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="refq" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FEF3C7;strokeColor=#D97706;strokeWidth=2;fontSize=14;fontColor=#111827;align=center;verticalAlign=middle;" value="Reference FIFO Model&lt;br&gt;&lt;b&gt;ref_q[$]&lt;/b&gt;&lt;br&gt;&lt;font&gt;front = expected read data&lt;br&gt;size = expected flag state&lt;/font&gt;" vertex="1">
+          <mxGeometry height="130" width="250" x="860" y="245" as="geometry" />
+        </mxCell>
+        <mxCell id="pre" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#16A34A;strokeWidth=2;fontSize=14;fontStyle=1;fontColor=#0F172A;align=center;verticalAlign=middle;" value="1. Pre Check&lt;br&gt;&lt;font&gt;pre_oFull / pre_oEmpty&lt;br&gt;vs ref_q.size()&lt;/font&gt;" vertex="1">
+          <mxGeometry height="100" width="200" x="440" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="eff" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#2563EB;strokeWidth=2;fontSize=14;fontStyle=1;fontColor=#0F172A;align=center;verticalAlign=middle;" value="2. Effective Cmd&lt;br&gt;&lt;font&gt;eff_push / eff_pop&lt;br&gt;full, empty 조건 반영&lt;/font&gt;" vertex="1">
+          <mxGeometry height="100" width="200" x="440" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="data" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FCE7F3;strokeColor=#DB2777;strokeWidth=2;fontSize=14;fontStyle=1;fontColor=#0F172A;align=center;verticalAlign=middle;" value="3. Data / Queue Update&lt;br&gt;&lt;font&gt;pop: pre_oRdDt == ref_q[0]&lt;br&gt;pop_front(), push_back(iWrDt)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="100" width="260" x="715" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="post" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#EDE9FE;strokeColor=#7C3AED;strokeWidth=2;fontSize=14;fontStyle=1;fontColor=#0F172A;align=center;verticalAlign=middle;" value="4. Post Check&lt;br&gt;&lt;font&gt;post_oFull / post_oEmpty&lt;br&gt;vs updated ref_q.size()&lt;/font&gt;" vertex="1">
+          <mxGeometry height="100" width="150" x="1030" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="result" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F1F5F9;strokeColor=#475569;strokeWidth=2;fontSize=14;fontStyle=1;fontColor=#0F172A;align=center;verticalAlign=middle;" value="Result&lt;br&gt;&lt;font&gt;sequence별&lt;br&gt;PASS / FAIL / TOTAL&lt;/font&gt;" vertex="1">
+          <mxGeometry height="120" width="210" x="1380" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="flow1" edge="1" parent="1" source="monitor" style="endArrow=block;html=1;rounded=0;strokeWidth=2;strokeColor=#334155;fontSize=14;fontColor=#334155;" target="scoreboard" value="analysis write">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow2" edge="1" parent="1" source="pre" style="endArrow=block;html=1;rounded=0;strokeWidth=2;strokeColor=#16A34A;fontSize=14;" target="eff" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow3" edge="1" parent="1" source="eff" style="endArrow=block;html=1;rounded=0;strokeWidth=2;strokeColor=#2563EB;fontSize=14;" target="data" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow4" edge="1" parent="1" source="data" style="endArrow=block;html=1;rounded=0;strokeWidth=2;strokeColor=#DB2777;fontSize=14;" target="post" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow5" edge="1" parent="1" source="post" style="endArrow=block;html=1;rounded=0;strokeWidth=2;strokeColor=#475569;fontSize=14;fontColor=#334155;" target="result" value="record_result()">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref1" edge="1" parent="1" source="refq" style="endArrow=block;html=1;rounded=0;dashed=1;strokeWidth=2;strokeColor=#D97706;fontSize=14;fontColor=#92400E;" target="pre" value="expected flags">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref2" edge="1" parent="1" source="refq" style="endArrow=block;html=1;rounded=0;dashed=1;strokeWidth=2;strokeColor=#D97706;fontSize=14;fontColor=#92400E;" target="data" value="front data">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref3" edge="1" parent="1" source="data" style="endArrow=block;html=1;rounded=0;dashed=1;strokeWidth=2;strokeColor=#D97706;fontSize=14;fontColor=#92400E;" target="refq" value="updated size">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ref4" edge="1" parent="1" source="refq" style="endArrow=block;html=1;rounded=0;dashed=1;strokeWidth=2;strokeColor=#D97706;fontSize=14;fontColor=#92400E;" target="post" value="expected flags">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

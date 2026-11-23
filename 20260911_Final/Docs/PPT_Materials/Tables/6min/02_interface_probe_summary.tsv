@@ -1,0 +1,7 @@
+관측 구간	무엇을 보나	왜 보나
+명령어 입력(IMEM)	clk, reset, fetch address, instruction	PC 주소의 명령어가 정확히 공급되는지 확인
+Commit 기준점	CPU_EXECUTE의 commit_valid	실행 명령 1개를 commit item 1개로 정렬
+Architectural 상태	PC, instruction, rd write enable/address/data	실행 순서와 register write-back 결과 비교
+내부 실행 경로	rs1/rs2 operand, immediate, control, ALU/WB	독립 reference 일치 및 X 전파 확인
+예상 밖 bus 동작	transfer, bus_we, address/data	R/I 실행 중 data-bus 접근이 없는지 확인
+Sampling 시점	@posedge mon_cb, input #1step	register write 직전의 실행 결과를 관측

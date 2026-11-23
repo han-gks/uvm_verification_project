@@ -1,0 +1,8 @@
+구조	Timing	역할
+rv32i_core_if	combinational IMEM + driver-controlled reset	instruction memory model과 DUT 외부 입력 제공
+rv32i_probe_if.mon_cb	@(posedge clk), input #1step	register-file write edge 직전 execute/commit 값 sample
+commit_valid	R/I opcode의 CPU_EXECUTE	scoreboard/coverage가 처리할 instruction 경계 표시; illegal negative도 관측
+Architectural probe	PC, instruction, rd_we, raw rf_we, rd, rd_data	commit 정렬과 파생/raw write-enable 비교
+Operand probe	rs1/rs2 address, ID/EX operands, immediate	실제 ALU 입력과 reference operand 비교
+Control/result probe	control signals, alu_result, wb_data	decode, ALU 결과, write-back 선택과 X 전파 확인
+Bus probe	transfer, bus_we, address/data	R/I 명령의 예상하지 않은 bus side effect 검출

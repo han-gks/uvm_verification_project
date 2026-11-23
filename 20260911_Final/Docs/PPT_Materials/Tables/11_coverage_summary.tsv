@@ -1,0 +1,7 @@
+Coverage 축	무엇을 확인하나	대표 규모 / 판정
+명령어·레지스터	19개 R/I 연산과 rs1·rs2·rd 주소, alias 관계	operation × register pairwise; Directed 필수 gate
+경계값	산술 overflow/carry, compare, immediate, shift 경계	I-op × immediate endpoint = 6 × 7 = 42; Directed 필수 gate
+Operand 값 조합	R-type 연산별 두 입력값의 대표 class 조합	R-op × src1 × src2 = 10 × 9 × 9 = 810; Directed 필수 gate
+Dependency	결과를 바로 읽는 rs1/rs2 dependency와 명령 간 gap	R: 10 × 3 × 4 = 120, I: 9 × 1 × 4 = 36; Directed 필수 gate
+Random 조합	alias·dependency·value class가 섞인 예외 조합	seed별 증가 추세 관찰; pass/fail gate 아님
+X·planned case	X source 전파, 계획한 directed case의 실제 commit	XPROP 100%; 미실행 planned case는 UVM error

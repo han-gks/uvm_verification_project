@@ -1,0 +1,11 @@
+{
+  "config": {
+    "hscale": 1.5
+  },
+  "signal": [
+    {
+      "name": "iClk",
+      "wave": "p....."
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+검증 축	대표 SVA	Coverage / Gate
+FSM / PC	state known/legal, FETCH→DECODE→EXECUTE, PC 안정·+4	state/transition reachability counter
+Decode / Result	full-funct7 control, R/I ALU·WB reference	instruction_cg 19개 operation
+RF / x0	EXECUTE 밖 write 금지, x0 read/write 규칙	op×register address, alias
+Boundary / Operand	overflow/carry, compare, imm/shamt, R-op×src1×src2	boundary_cg + operand_profile_cg (810-bin 3-way)
+Dependency / Random	producer 추적, operation×dependency×gap	dependency_cg (R 120 + I 36) + random_combo_cg
+X / Legality	source X의 ALU/WB 전파, illegal encoding 검출	xprop_cg + negative detection
+Mandatory closure	planned case 미실행 시 UVM error	4개 directed group 100%가 pass gate

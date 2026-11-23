@@ -1,0 +1,8 @@
+단계	입력 / 동작	검증 의미
+Program publish	driver 원본 instruction과 metadata 수신	DUT와 분리된 expected stream 확보
+Commit sample	PC, instruction, operand, control, ALU/WB, raw rf_we	실제 실행 경계와 내부값 관측
+Alignment	expected와 actual의 PC/instruction 비교	누락·중복·순서 오류 검출
+Reference	ref_gpr/ref_valid + full-funct7 ISA lookup	DUT read/decode와 독립된 expected 계산
+Write-back	rd_we와 raw rf_we, rd/data, x0 규칙 비교	파생 신호와 실제 write control 분리 검증
+RF storage	후속 ADDI rd,rd,0 readback	계층 접근 없이 저장 결과 확인
+X policy	unknown source는 taint, known overwrite 후 비교 재개	무의미한 2-state 비교 없이 X 흐름 관리

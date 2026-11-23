@@ -1,0 +1,9 @@
+신호	방향	요약
+clk	TB → DUT	CPU 동작 기준 clock
+rst_n	IMEM driver/core_if → DUT	PC, FSM, datapath register 초기화
+instr_code[31:0]	core_if IMEM → DUT	현재 PC에 해당하는 R/I instruction 공급
+instr_addr[31:0]	DUT → core_if/Monitor	instruction fetch address와 PC 정렬 확인
+ready	core_if → DUT	R/I test에서는 known idle 값 유지
+bus_rdata[31:0]	core_if → DUT	R/I test에서는 known idle 값 유지
+transfer / bus_we	DUT → Monitor	R/I 실행 중 data-bus access가 없음을 확인
+itype / bus_addr / bus_wdata	DUT → Monitor	core port 관측, 현재 R/I 기능 범위에서는 비활성 경로

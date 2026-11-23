@@ -1,0 +1,26 @@
+# Track ONLY the two UVM & Formal verification projects
+/*
+!.gitignore
+!README.md
+!20260905_FIFO_UVM/
+!20260911_Final/
+
+# Exclude Vivado, waveforms, logs, SymbiYosys run artifacts & Office files
+**/Vivado/
+**/Waveform/
+**/Log/
+**/Log2/
+20260905_FIFO_UVM/Src/Fifo/
+**/*.log
+**/*.vcd
+**/*.wdb
+**/*.jou
+**/*.pb
+**/*.pptx
+**/*.doc
+**/*.docx
+**/*.backup
+**/*.bkp
+**/__pycache__/
+*.pyc
+**/_study/

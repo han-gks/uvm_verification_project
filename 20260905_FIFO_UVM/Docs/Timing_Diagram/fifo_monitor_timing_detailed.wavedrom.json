@@ -1,0 +1,28 @@
+{
+  "head": {
+    "text": "FIFO Monitor Pre/Post Sampling"
+  },
+  "config": {
+    "hscale": 1.4
+  },
+  "signal": [
+    {
+      "name": "iClk",
+      "wave": "p.....",
+      "node": ".c...."
+    },
+    {
+      "name": "Monitor",
+      "wave": "0=.=..",
+      "data": [
+        "pre sample",
+        "post sample"
+      ],
+      "node": ".a.b.."
+    }
+  ],
+  "edge": [
+    "c->a posedge",
+    "a->b #1step"
+  ]
+}

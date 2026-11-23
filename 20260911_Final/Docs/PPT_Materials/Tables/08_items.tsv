@@ -1,0 +1,5 @@
+Item	주요 field	사용 목적
+rv32i_program_item	instructions, roles, scenarios, case_ids	driver에 program 전달, scoreboard/coverage에 검증 의도 전달
+rv32i_commit_item	PC, instruction, rd_we/raw rf_we, rd/data	architectural commit 정렬과 register write 비교
+rv32i_commit_item	rs1/rs2, actual operands, immediate	independent R/I reference result 계산
+rv32i_commit_item	control, ALU result, WB data, bus activity	control/SVA/X propagation 및 side-effect 확인
