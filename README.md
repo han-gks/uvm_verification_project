@@ -33,7 +33,7 @@ SystemVerilog **UVM(Universal Verification Methodology)**, **DPI-C Reference Mod
 
 ![RV32I Scoreboard Flow](20260911_Final/Docs/Block_Diagram/RV32I_Scoreboard_Flow.png)
 
-- **검증 범위:** RV32I Legal R-Type 10종(`ADD`~`AND`) + I-Type 9종(`ADDI`~`SRAI`) 총 19개 ALU 명령어 및 Illegal 인코딩 Negative 검출
+- **검증 범위:** RV32I Legal R-Type 10종(`ADD`–`AND`) + I-Type 9종(`ADDI`–`SRAI`) 총 19개 ALU 명령어 및 Illegal 인코딩 Negative 검출
 - **시나리오 구성 (6 Clean/X + 1 Negative):** `Sanity`, `Boundary`, `RF Access`, `Operand Profile`, `Random`, `X Propagation`, `Illegal`
 - **Program Metadata 분리 (`RI_SETUP` / `RI_TARGET` / `RI_READBACK` / `RI_XPROP`):**
   - Scoreboard는 Driver 원본 명령어 기준으로 전체 명령어를 검사하되, Functional Coverage는 `RI_TARGET`만 샘플링하여 Setup 명령어에 의한 커버리지 왜곡 차단
