@@ -25,10 +25,13 @@ SystemVerilog **UVM(Universal Verification Methodology)**, **DPI-C Reference Mod
 
 ## 2. RV32I Core UVM & Bind SVA 검증 (`20260911_Final/`)
 
-### UVM 검증 환경 및 Scoreboard 흐름
-| UVM Block Diagram | Scoreboard Flow |
-| :---: | :---: |
-| ![RV32I UVM Block Diagram](20260911_Final/Docs/Block_Diagram/RV32I_UVM_Block_Diagram.png) | ![RV32I Scoreboard Flow](20260911_Final/Docs/Block_Diagram/RV32I_Scoreboard_Flow.png) |
+### UVM 검증 환경 (`RV32I_UVM_Block_Diagram`)
+
+![RV32I UVM Block Diagram](20260911_Final/Docs/Block_Diagram/RV32I_UVM_Block_Diagram.png)
+
+### Scoreboard 흐름 (`RV32I_Scoreboard_Flow`)
+
+![RV32I Scoreboard Flow](20260911_Final/Docs/Block_Diagram/RV32I_Scoreboard_Flow.png)
 
 - **검증 범위:** RV32I Legal R-Type 10종(`ADD`~`AND`) + I-Type 9종(`ADDI`~`SRAI`) 총 19개 ALU 명령어 및 Illegal 인코딩 Negative 검출
 - **시나리오 구성 (6 Clean/X + 1 Negative):** `Sanity`, `Boundary`, `RF Access`, `Operand Profile`, `Random`, `X Propagation`, `Illegal`
